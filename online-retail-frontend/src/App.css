@@ -1,0 +1,11 @@
+.app {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.chart-container {
+  width: auto !important;
+  height: auto !important;
+  margin-top: 50px;
+}

@@ -1,0 +1,20 @@
+type Query {
+  product(stockCode: ID!): Product
+  productSearch(searchQuery: String): [Product]
+  measures(stockCode: ID!, startDate: String, endDate: String): [Measure]!
+}
+
+type Product {
+  stockCode: ID!
+  description: String!
+  measures(startDate: String, endDate: String): [Measure]!
+}
+
+type Measure {
+  stockCode: ID!
+  sales: Float
+  avgUnitPrice: Float
+  volume: Float
+  custCount: Float
+  weekEnding: String
+}
