@@ -1,9 +1,13 @@
-import etl.{CountryETL, ProductSalesByCountryETL, ProductWeeklySalesETL, ProductsETL}
-import org.apache.spark.sql.types._
+package com.solvemprobler
 
-object OnlineRetailETL extends SparkSessionWrapper {
-  import spark.implicits._
+import com.solvemprobler.etl.{CountryETL, ProductSalesByCountryETL, ProductWeeklySalesETL, ProductsETL}
+import com.solvemprobler.utils.{SparkSessionWrapper, WithConfig}
+import org.apache.spark.sql.types._
+import pureconfig.generic.auto._
+
+object OnlineRetailETL extends SparkSessionWrapper with WithConfig {
   def main(args: Array[String]): Unit = {
+    import spark.implicits._
 
     val schema = new StructType()
       .add(StructField("invoiceNo", StringType, false))
@@ -20,9 +24,9 @@ object OnlineRetailETL extends SparkSessionWrapper {
       .option("header", "true") //reading the headers
       .option("mode", "DROPMALFORMED")
       .schema(schema)
-      .load("data/Online_Retail.csv")
+      .load(config.onlineRetailData)
       .filter($"description".isNotNull && $"stockCode".isNotNull)
-
+    println(config.onlineRetailData)
     val jobs = List(
       ProductsETL(spark),
       CountryETL(spark),

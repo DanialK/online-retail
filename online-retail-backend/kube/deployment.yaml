@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-retail-backend
+  labels:
+    app: online-retail-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-retail-backend
+  template:
+    metadata:
+      labels:
+        app: online-retail-backend
+    spec:
+      containers:
+      - name: online-retail-backend
+        image: asia.gcr.io/online-retail-238109/online-retail-backend
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: 8080
+        - name: ELASTICSEARCH
+          value: 10.11.251.228

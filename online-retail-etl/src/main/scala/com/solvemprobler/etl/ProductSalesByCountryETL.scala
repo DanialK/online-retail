@@ -1,8 +1,8 @@
-package etl
+package com.solvemprobler.etl
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions.sum
-import utils.{EtlDefinition, WriteUtils}
+import com.solvemprobler.utils.{EtlDefinition, WriteUtils}
 
 case class ProductSalesByCountryETL(spark: SparkSession) extends EtlJob {
   import spark.implicits._

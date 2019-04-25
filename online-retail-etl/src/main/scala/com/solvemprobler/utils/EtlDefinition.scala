@@ -1,4 +1,4 @@
-package utils
+package com.solvemprobler.utils
 
 import org.apache.spark.sql.DataFrame
 

@@ -15,8 +15,8 @@ class MeasureRepository {
               {
                 range: {
                     weekEnding: {
-                        gte: 1291726800000,
-                        lte: 1323781200000
+                      gte: 1291726800000,
+                      lte: 1323781200000
                     }
                 }
               }

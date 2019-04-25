@@ -1,7 +1,7 @@
-package etl
+package com.solvemprobler.etl
 
 import org.apache.spark.sql.DataFrame
-import utils.{EtlDefinition, WriteUtils}
+import com.solvemprobler.utils.{EtlDefinition, WriteUtils}
 
 trait EtlJob {
   def getEtlDefinition(df: DataFrame): EtlDefinition = {

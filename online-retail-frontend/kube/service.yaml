@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: online-retail-frontend
+spec:
+  selector:
+    app: online-retail-frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-retail-frontend
+  labels:
+    app: online-retail-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-retail-frontend
+  template:
+    metadata:
+      labels:
+        app: online-retail-frontend
+    spec:
+      containers:
+      - name: online-retail-frontend
+        image: asia.gcr.io/online-retail-238109/online-retail-frontend
+        ports:
+        - containerPort: 8080

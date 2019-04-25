@@ -1,7 +1,7 @@
-package etl
+package com.solvemprobler.etl
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import utils.{EtlDefinition, WriteUtils}
+import com.solvemprobler.utils.{EtlDefinition, WriteUtils}
 
 case class CountryETL(spark: SparkSession) extends EtlJob {
   import spark.implicits._

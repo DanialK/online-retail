@@ -1,8 +1,8 @@
-package etl
+package com.solvemprobler.etl
 
 import org.apache.spark.sql.functions.{sum, window, to_date, collect_set, avg, size, date_format}
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import utils.{EtlDefinition, WriteUtils}
+import com.solvemprobler.utils.{EtlDefinition, WriteUtils}
 
 case class ProductWeeklySalesETL(spark: SparkSession) extends EtlJob {
   import spark.implicits._
